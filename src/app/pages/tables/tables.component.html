@@ -1,4 +1,5 @@
-<div class="header pb-8 pt-5 pt-md-8" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
+<div class="header pb-8 pt-5 pt-md-8"
+  style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
   <div class="container-fluid">
     <h1 class="title">Datos Fisiológicos</h1>
   </div>
@@ -16,15 +17,15 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <p for="cedula">Cedula</p>
-              <input type="text" name="cedula" class="form-control" disabled>
+              <input type="text" name="cedula" [(ngModel)]="paciente.cedula" class="form-control" disabled>
             </div>
             <div class="form-group col-md-4">
               <p for="nombres">Nombres</p>
-              <input type="text" name="nombres" class="form-control" disabled>
+              <input type="text" name="nombres" [(ngModel)]="paciente.nombres" class="form-control" disabled>
             </div>
             <div class="form-group col-md-4">
               <p for="apellidos">Apellidos</p>
-              <input type="text" name="apellidos" class="form-control" disabled>
+              <input type="text" name="apellidos" [(ngModel)]="paciente.apellidos" class="form-control" disabled>
             </div>
           </div>
         </form>
@@ -53,11 +54,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>14/04/2023</td>
-                    <td>2:32</td>
-                    <td>120</td>
-                    <td>100</td>
+                  <tr *ngFor="let presion of presiones">
+                    <td>{{ presion.fecha }}</td>
+                    <td>{{ presion.hora }}</td>
+                    <td>{{ presion.sistolica }}</td>
+                    <td>{{ presion.diastolica }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -77,14 +78,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>2:32</td>
-                    <td>120</td>
-                    <td>32</td>
+                  <tr *ngFor="let temperatura of temperaturas">
+                    <td>{{ temperatura.fecha }}</td>
+                    <td>{{ temperatura.hora }}</td>
+                    <td>{{ temperatura.temperatura }}</td>
                   </tr>
                 </tbody>
               </table>
-              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
             </div>
           </div>
           <div *ngIf="activeTab == 'Oxigenación'" class="w-100">
@@ -100,11 +100,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>14/04/2023</td>
-                    <td>2:32</td>
-                    <td>98</td>
-                  </tr>
+                  <tr *ngFor="let oxigeno of oxigenos">
+                    <td>{{ oxigeno.fecha }}</td>
+                    <td>{{ oxigeno.hora }}</td>
+                    <td>{{ oxigeno.oxigeno }}</td>
+                  </tr>            
                 </tbody>
               </table>
               <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
@@ -123,11 +123,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>14/04/2023</td>
-                    <td>2:32</td>
-                    <td>97</td>
-                  </tr>
+                  <tr *ngFor="let frecuencia of frecuencias">
+                    <td>{{ frecuencia.fecha }}</td>
+                    <td>{{ frecuencia.hora }}</td>
+                    <td>{{ frecuencia.frecuencia }}</td>
+                  </tr>            
                 </tbody>
               </table>
               <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->

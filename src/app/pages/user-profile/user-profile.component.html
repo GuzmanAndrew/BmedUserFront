@@ -10,9 +10,9 @@
             <div class="col-8">
               <h3 class="mb-0">Mi cuenta</h3>
             </div>
-            <div class="col-4 text-right">
+            <!-- <div class="col-4 text-right">
               <a href="#!" class="btn btn-sm btn-success">Editar</a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="card-body">
@@ -23,15 +23,15 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-username">Nombre de usuario</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative"
-                    placeholder="lucky.jesse" disabled>
+                    <input type="text" name="input-username" [(ngModel)]="paciente.nombreUsuario"
+                    class="form-control" disabled>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Correo electrónico</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative"
-                    placeholder="jesse@example.com" disabled>
+                    <input type="email" name="input-email" [(ngModel)]="paciente.email"
+                    class="form-control" disabled>
                   </div>
                 </div>
               </div>
@@ -39,15 +39,15 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">Nombres</label>
-                    <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                    placeholder="Lucky" disabled>
+                    <input type="text" name="input-first-name" [(ngModel)]="paciente.nombres"
+                    class="form-control" disabled>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-last-name">Apellidos</label>
-                    <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                    placeholder="Jesse" disabled >
+                    <label class="form-control-label" for="input-last-name">Apellnameos</label>
+                    <input type="text" name="input-last-name" [(ngModel)]="paciente.apellidos"
+                    class="form-control" disabled >
                   </div>
                 </div>
               </div>
@@ -60,8 +60,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-address">Dirección</label>
-                    <input id="input-address" class="form-control form-control-alternative"
-                    placeholder="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text" disabled>
+                    <input name="input-address" [(ngModel)]="paciente.direccion" 
+                    class="form-control" type="text" disabled>
                   </div>
                 </div>
               </div>
@@ -69,22 +69,22 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-document">Cédula</label>
-                    <input type="text" id="input-document" class="form-control form-control-alternative"
-                    placeholder="1.151.958.712" disabled>
+                    <input type="text" name="input-document" [(ngModel)]="paciente.cedula" 
+                    class="form-control" disabled>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-phone">Numero de celular</label>
-                    <input type="text" id="input-phone" class="form-control form-control-alternative"
-                    placeholder="319370525" disabled>
+                    <input type="text" name="input-phone" [(ngModel)]="paciente.celular" 
+                    class="form-control" disabled>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-age">Edad</label>
-                    <input type="number" id="input-age" class="form-control form-control-alternative"
-                    placeholder="27" disabled>
+                    <input type="number" name="input-age" [(ngModel)]="paciente.edad"
+                    class="form-control" disabled>
                   </div>
                 </div>
               </div>
