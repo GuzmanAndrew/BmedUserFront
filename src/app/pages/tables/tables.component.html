@@ -12,41 +12,127 @@
         <!-- <div class="card-header border-0">
           <h3 class="mb-0">Card tables</h3>
         </div> -->
+        <form style="padding: 27px;">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <p for="cedula">Cedula</p>
+              <input type="text" name="cedula" class="form-control" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <p for="nombres">Nombres</p>
+              <input type="text" name="nombres" class="form-control" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <p for="apellidos">Apellidos</p>
+              <input type="text" name="apellidos" class="form-control" disabled>
+            </div>
+          </div>
+        </form>
         <div style="padding: 27px;">
-
           <ul class="tabs-container">
-            <li (click)="onTabClick('Presions')" [class.active]="activeTab == 'Presions'"
-              class="tab-link">Presions Arterial</li>
-            <li (click)="onTabClick('Temperatura')" [class.active]="activeTab == 'Temperatura'"
-              class="tab-link"> Temperatura</li>
-            <li (click)="onTabClick('Oxigenación')" [class.active]="activeTab == 'Oxigenación'"
-              class="tab-link"> Oxigenación en sangre</li>
-            <li (click)="onTabClick('Frecuencia')" [class.active]="activeTab == 'Frecuencia'"
-              class="tab-link"> Frecuencia Cardiaca</li>
+            <li (click)="onTabClick('Presions')" [class.active]="activeTab == 'Presions'" class="tab-link">Presions
+              arterial</li>
+            <li (click)="onTabClick('Temperatura')" [class.active]="activeTab == 'Temperatura'" class="tab-link">
+              Temperatura</li>
+            <li (click)="onTabClick('Oxigenación')" [class.active]="activeTab == 'Oxigenación'" class="tab-link">
+              Oxigenación en sangre</li>
+            <li (click)="onTabClick('Frecuencia')" [class.active]="activeTab == 'Frecuencia'" class="tab-link">
+              Frecuencia cardiaca</li>
           </ul>
           <div *ngIf="activeTab == 'Presions'" class="w-100">
             <br>
             <br>
-            <div class="col-xl-8 mb-5 mb-xl-0">
-              <div class="card bg-gradient-default shadow">
-                <div class="card-body">
-                  <div class="chart">
-                    <canvas id="chart-sales" class="chart-canvas"></canvas>
-                  </div>
-                </div>
-              </div>
+            <div class="col-xl-12 mb-5 mb-xl-0">
+              <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Sistólica</th>
+                    <th scope="col">Diastólica</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>14/04/2023</td>
+                    <td>2:32</td>
+                    <td>120</td>
+                    <td>100</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
             </div>
           </div>
           <div *ngIf="activeTab == 'Temperatura'" class="w-100">
-            Temperatura
+            <br>
+            <br>
+            <div class="col-xl-12 mb-5 mb-xl-0">
+              <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Temperatura</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2:32</td>
+                    <td>120</td>
+                    <td>100</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+            </div>
           </div>
           <div *ngIf="activeTab == 'Oxigenación'" class="w-100">
-            Frecuencia Cardiaca
+            <br>
+            <br>
+            <div class="col-xl-12 mb-5 mb-xl-0">
+              <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Oxígeno</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>14/04/2023</td>
+                    <td>2:32</td>
+                    <td>120</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+            </div>
           </div>
           <div *ngIf="activeTab == 'Frecuencia'" class="w-100">
-            Frecuencia Cardiaca
+            <br>
+            <br>
+            <div class="col-xl-12 mb-5 mb-xl-0">
+              <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Frecuencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>14/04/2023</td>
+                    <td>2:32</td>
+                    <td>120</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+            </div>
           </div>
-
         </div>
       </div>
     </div>
