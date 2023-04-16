@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-tables',
   templateUrl: './tables.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablesComponent implements OnInit {
 
+  activeTab: string = 'Presions Arterial';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onTabClick(tab) {
+    this.activeTab = tab;
   }
 
 }

@@ -12,35 +12,41 @@
         <!-- <div class="card-header border-0">
           <h3 class="mb-0">Card tables</h3>
         </div> -->
-        <div role="tabpanel" style="padding: 27px;">
-          <ul class="nav nav-tabs">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" aria-controls="seccion1" data-toggle="tab" role="tab" href="#seccion1">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-controls="seccion2" data-toggle="tab" role="tab" href="#seccion2">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-controls="seccion3" data-toggle="tab" role="tab" href="#seccion3">Link</a>
-            </li>
+        <div style="padding: 27px;">
+
+          <ul class="tabs-container">
+            <li (click)="onTabClick('Presions')" [class.active]="activeTab == 'Presions'"
+              class="tab-link">Presions Arterial</li>
+            <li (click)="onTabClick('Temperatura')" [class.active]="activeTab == 'Temperatura'"
+              class="tab-link"> Temperatura</li>
+            <li (click)="onTabClick('Oxigenación')" [class.active]="activeTab == 'Oxigenación'"
+              class="tab-link"> Oxigenación en sangre</li>
+            <li (click)="onTabClick('Frecuencia')" [class.active]="activeTab == 'Frecuencia'"
+              class="tab-link"> Frecuencia Cardiaca</li>
           </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="seccion1">
-              <h1>
-                Test 1
-              </h1>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="seccion2">
-              <h1>
-                Test 2
-              </h1>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="seccion3">
-              <h1>
-                Test 3
-              </h1>
+          <div *ngIf="activeTab == 'Presions'" class="w-100">
+            <br>
+            <br>
+            <div class="col-xl-8 mb-5 mb-xl-0">
+              <div class="card bg-gradient-default shadow">
+                <div class="card-body">
+                  <div class="chart">
+                    <canvas id="chart-sales" class="chart-canvas"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div *ngIf="activeTab == 'Temperatura'" class="w-100">
+            Temperatura
+          </div>
+          <div *ngIf="activeTab == 'Oxigenación'" class="w-100">
+            Frecuencia Cardiaca
+          </div>
+          <div *ngIf="activeTab == 'Frecuencia'" class="w-100">
+            Frecuencia Cardiaca
+          </div>
+
         </div>
       </div>
     </div>
