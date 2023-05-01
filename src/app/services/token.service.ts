@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUserName';
 const AUTHORITIES_KEY = 'AuthAuthorities';
+const AUTHORITIES_KEY_USER = 'AuthAuthoritiesUser';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class TokenService {
     window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
 
+  public setAuthoritiesUser(authorities: string): void {
+    window.sessionStorage.removeItem(AUTHORITIES_KEY_USER);
+    window.sessionStorage.setItem(AUTHORITIES_KEY_USER, authorities);
+  }
+
   public getAuthorities(): string[] {
     this.roles = [];
     if (sessionStorage.getItem(AUTHORITIES_KEY)) {
@@ -44,6 +50,10 @@ export class TokenService {
       });
     }
     return this.roles;
+  }
+
+  public getAuthoritiesUser(): string {
+    return sessionStorage.getItem(AUTHORITIES_KEY_USER)
   }
 
   public logOut(): void {

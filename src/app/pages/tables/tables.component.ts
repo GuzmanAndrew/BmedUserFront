@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Paciente } from 'src/app/models/Paciente';
 import { ServiceService } from 'src/app/services/service.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-tables',
@@ -29,13 +30,39 @@ export class TablesComponent implements OnInit {
   frecuencias: any = [];
   p: number = 1;
   idUser: any;
+  personas: any = [];
+  roles: string[];
 
-  constructor(private service: ServiceService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: ServiceService,
+    private activatedRoute: ActivatedRoute, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    this.roles = this.tokenService.getAuthorities();
+    const roleUser = this.tokenService.getAuthoritiesUser();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_MEDICO') {
+        this.getByUserId();
+      }
+    })
+    if (roleUser === 'ROLE_USER') {
+      this.getByUserName();
+    }
+  }
+
+  getByUserId(): void {
+    const params = this.activatedRoute.snapshot.params;
+    this.service.getPersonaId(params.id).subscribe(data => {
+      this.idUser = params.id;
+      this.paciente = data;
+    },
+    err => console.log(err)
+    );
+
+  }
+
+  getByUserName(): void {
     const params = sessionStorage.getItem('AuthUserName');
-    this.service.getPersonaId(params).subscribe((data: any) => {
-      console.log(data);
+    this.service.getPersonaUser(params).subscribe((data: any) => {
       this.idUser = data.id;
       this.paciente = data;
     },
@@ -54,7 +81,6 @@ export class TablesComponent implements OnInit {
   dataTemperature(): void {
     const id = this.idUser;
     this.service.getTemperaturaPersonaId(id).subscribe(data => {
-      console.log(data);
       this.temperaturas = data;
     },
     err => console.log(err)
@@ -64,7 +90,6 @@ export class TablesComponent implements OnInit {
   dataPresion(): void {
     const id = this.idUser;
     this.service.getPresionPersonaId(id).subscribe(data => {
-      console.log(data);
       this.presiones = data;
     },
     err => console.log(err)
@@ -75,7 +100,6 @@ export class TablesComponent implements OnInit {
   dataOxigeno(): void {
     const id = this.idUser;
     this.service.getOxigenoPersonaId(id).subscribe(data => {
-      console.log(data);
       this.oxigenos = data;
     },
     err => console.log(err)
@@ -85,7 +109,6 @@ export class TablesComponent implements OnInit {
   dataFrecuencia(): void {
     const id = this.idUser;
     this.service.getFrecuenciaPersonaId(id).subscribe(data => {
-      console.log(data);
       this.frecuencias = data;
     },
     err => console.log(err)

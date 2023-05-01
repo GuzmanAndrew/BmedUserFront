@@ -16,12 +16,18 @@ export class ProdGuardService implements CanActivate {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
-    const expectedRol = route.data.expectedRol;
+    const roles = this.tokenService.getAuthorities();
+    this.realRol = 'user';
+    roles.forEach(rol => {
+      if (rol === 'ROLE_MEDICO') {
+        this.realRol = 'medico';
+      }
+    });
     if (!this.tokenService.getToken()) {
       this.router.navigate(['/']);
       return false;
     }
-    return true
+    return true;
   }
 
 }

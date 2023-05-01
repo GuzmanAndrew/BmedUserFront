@@ -1,4 +1,5 @@
-<div class="header pb-8 pt-5 pt-md-8" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
+<div class="header pb-8 pt-5 pt-md-8"
+  style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
   <div class="container-fluid">
     <div class="header-body">
       <div class="row" style="justify-content: center;">
@@ -90,11 +91,11 @@
     </div>
   </div>
 </div>
-<div class="container-fluid mt--7" style="margin-top: 3em !important">
+<div class="container-fluid mt--7" style="margin-top: 3em !important" *ngIf="isUser">
   <div class="row">
     <div class="col-xl-6">
       <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer;"
-        [routerLink]="['/tables']">
+        [routerLink]="['/info']">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
@@ -112,7 +113,7 @@
     </div>
     <div class="col-xl-6">
       <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer;"
-        [routerLink]="['/icons']">
+        [routerLink]="['/covid']">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
@@ -127,6 +128,38 @@
           </div>
         </div> -->
       </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid mt--7" style="margin-top: 3em !important" *ngIf="isMedical">
+  <div class="row">
+    <div class="col-xl-12 mb-5 mb-xl-0">
+      <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+        <thead>
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Ver Datos Médicos</th>
+            <th scope="col">Análisis COVID-19</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td>{{persona.cedula}}</td>
+            <td>{{persona.nombres}}</td>
+            <td>{{persona.apellidos}}</td>
+            <td>
+              <a [routerLink]="['/info', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
+            </td>
+            <td>
+              <a [routerLink]="['/covid']" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-brain"></i></a>
+            </td>    
+          </tr>
+        </tbody>
+      </table>
+      <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
     </div>
   </div>
 </div>

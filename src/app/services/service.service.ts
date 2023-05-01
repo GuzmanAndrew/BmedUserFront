@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class ServiceService {
 
   Url = 'http://localhost:8081/auth/findUsuarios';
-  UrlByUserPatient = 'http://localhost:8081/auth/usuario';
+  UrlByUserId = 'http://localhost:8081/auth/usuario';
+  UrlByUserName = 'http://localhost:8081/auth/user/name';
   urlPresionIdPatient = 'http://localhost:8081/api/presion/user';
   urlTemperaturaPatient = 'http://localhost:8081/api/temp/user';
   urlOxigenoPatient = 'http://localhost:8081/api/oxi/user';
@@ -20,8 +21,12 @@ export class ServiceService {
     return this.http.get(`${this.Url}`);
   }
 
-  getPersonaId(usuario: string) {
-    return this.http.get(`${this.UrlByUserPatient}/${usuario}`);
+  getPersonaId(id: number) {
+    return this.http.get(`${this.UrlByUserId}/${id}`);
+  }
+
+  getPersonaUser(usuario: string) {
+    return this.http.get(`${this.UrlByUserName}/${usuario}`);
   }
 
   deletePersona(id: number) {
