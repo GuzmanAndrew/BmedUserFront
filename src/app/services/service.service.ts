@@ -11,6 +11,7 @@ export class ServiceService {
   Url = 'http://localhost:8081/auth/findUsuarios';
   UrlByUserId = 'http://localhost:8081/auth/usuario';
   UrlByUserName = 'http://localhost:8081/auth/user/name';
+  UrlByUserNameMedic = 'http://localhost:8083/auth/findUsuario';
   urlPresionIdPatient = 'http://localhost:8081/api/presion/user';
   urlAddCovid = 'http://localhost:8081/api/covid/save';
   urlTemperaturaPatient = 'http://localhost:8081/api/temp/user';
@@ -28,6 +29,9 @@ export class ServiceService {
   }
   getPersonaUser(usuario: string) {
     return this.http.get(`${this.UrlByUserName}/${usuario}`);
+  }
+  getPersonaMedic(usuario: string) {
+    return this.http.get(`${this.UrlByUserNameMedic}/${usuario}`);
   }
   savedCovid(covid: Covid) {
     return this.http.post(`${this.urlAddCovid}`, covid);
