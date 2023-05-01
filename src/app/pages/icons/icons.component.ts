@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Covid } from 'src/app/models/Covid';
 import { AlgorithmsIaService } from 'src/app/services/algorithms-ia.service';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-icons',
@@ -16,7 +17,13 @@ export class IconsComponent implements OnInit {
   predictions: any;
   score: any;
 
-  constructor(private sanitizer: DomSanitizer, private rest: AlgorithmsIaService) { }
+  constructor(private rest: AlgorithmsIaService, private service: ServiceService) { }
+
+  covid: Covid = {
+    prediccion: '',
+    puntaje: '',
+    pacienteId: null
+  };
 
   ngOnInit() {
   }
@@ -25,7 +32,6 @@ export class IconsComponent implements OnInit {
     const captureFile = event.target.files[0];
     this.blobFile(captureFile).then((image: any) => {
       this.imagePreview = image.base;
-      console.log(image);
     })
     this.files.push(captureFile);
   }
@@ -63,8 +69,29 @@ export class IconsComponent implements OnInit {
         .subscribe(res => {
           this.loading = false;
           this.responseData = JSON.stringify(res);
-          this.predictions  = this.responseData.substring(25, 35);
-          this.score  = this.responseData.substring(43, 62);
+          const covPredic = this.responseData.substring(26, 34);
+          const nomPredic = this.responseData.substring(26, 32);
+          const covScore = this.score = this.responseData.substring(44, 62);
+          const nomScore = this.score = this.responseData.substring(42, 62);
+          const decCovScore = parseFloat(covScore);
+          const decNomScore = parseFloat(nomScore);
+          const porcCovScore = (decCovScore * 100).toFixed(2) + "%";
+          const porcNomScore = (decNomScore * 100).toFixed(2) + "%";
+          if (covPredic === 'Covid19+') {
+            this.predictions = covPredic;
+            this.score = porcCovScore;
+          } else {
+            this.predictions = nomPredic;
+            this.score = porcNomScore;
+          }
+          this.covid.prediccion = this.predictions;
+          this.covid.puntaje = this.score;
+          this.covid.pacienteId = Number(sessionStorage.getItem('userId'));
+          this.service.savedCovid(this.covid).subscribe(data => {
+            console.log("Success");
+          },
+            err => console.log(err)
+          );
           this.files.shift();
         });
     } catch (e) {

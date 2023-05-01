@@ -57,7 +57,6 @@ export class TablesComponent implements OnInit {
     },
     err => console.log(err)
     );
-
   }
 
   getByUserName(): void {

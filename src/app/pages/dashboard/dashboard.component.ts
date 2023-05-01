@@ -23,12 +23,13 @@ export class DashboardComponent implements OnInit {
     this.roles.forEach(rol => {
       if (rol === 'ROLE_MEDICO') {
         this.isMedical = true;
+        this.getPersons();
       }
     })
     if (roleUser === 'ROLE_USER') {
       this.isUser = true;
+      this.getPersonByUsername();
     }
-    this.getPersons();
   }
 
   getPersons() {
@@ -37,6 +38,15 @@ export class DashboardComponent implements OnInit {
         this.personas = res;
       },
       err => console.error(err)
+    );
+  }
+
+  getPersonByUsername() {
+    const params = sessionStorage.getItem('AuthUserName');
+    this.service.getPersonaUser(params).subscribe((data: any) => {
+      window.sessionStorage.setItem("userId", data.id);
+    },
+    err => console.log(err)
     );
   }
 }

@@ -26,7 +26,6 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     const params = sessionStorage.getItem('AuthUserName');
     this.service.getPersonaUser(params).subscribe((data: any) => {
-      console.log(data);
       this.paciente = data;
     },
     err => console.log(err)
