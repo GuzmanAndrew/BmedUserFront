@@ -8,16 +8,16 @@ import { Covid } from '../models/Covid';
 })
 export class ServiceService {
 
-  Url = 'http://localhost:8081/auth/findUsuarios';
-  UrlByUserId = 'http://localhost:8081/auth/usuario';
-  UrlByUserName = 'http://localhost:8081/auth/user/name';
-  UrlByUserNameMedic = 'http://localhost:8083/auth/findUsuario';
-  urlPresionIdPatient = 'http://localhost:8081/api/presion/user';
-  urlAddCovid = 'http://localhost:8081/api/covid/save';
-  urlTemperaturaPatient = 'http://localhost:8081/api/temp/user';
-  urlOxigenoPatient = 'http://localhost:8081/api/oxi/user';
-  urlFrecuenciaturaPatient = 'http://localhost:8081/api/frecuencia/user';
-  urlCovidPatient = 'http://localhost:8081/api/covid/user';
+  Url = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/findUsuarios';
+  UrlByUserId = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/usuario';
+  UrlByUserName = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/user/name';
+  UrlByUserNameMedic = 'http://bmed-medical.us-east-1.elasticbeanstalk.com/auth/findUsuario';
+  urlPresionIdPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/presion/user';
+  urlAddCovid = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/covid/save';
+  urlTemperaturaPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/temp/user';
+  urlOxigenoPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/oxi/user';
+  urlFrecuenciaturaPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/frecuencia/user';
+  urlCovidPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/covid/user';
 
   constructor(private http: HttpClient) { }
 
