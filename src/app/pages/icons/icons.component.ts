@@ -65,7 +65,7 @@ export class IconsComponent implements OnInit {
         formData.append('file', item)
       });
       this.loading = true;
-      this.rest.post(`http://192.168.1.2:5000/model/covid19/`, formData)
+      this.rest.post(`http://172.24.251.192:5000/model/covid19/`, formData)
         .subscribe(res => {
           this.loading = false;
           this.responseData = JSON.stringify(res);
