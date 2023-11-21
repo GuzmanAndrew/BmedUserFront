@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Paciente } from '../models/Paciente';
-import { HttpClient } from '@angular/common/http';
 import { Covid } from '../models/Covid';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  Url = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/findUsuarios';
-  UrlByUserId = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/usuario';
-  UrlByUserName = 'http://bmed-user.us-east-1.elasticbeanstalk.com/auth/user/name';
+  Url = 'http://backend-users.us-east-1.elasticbeanstalk.com/auth/findUsuarios';
+  UrlByUserId = 'http://backend-users.us-east-1.elasticbeanstalk.com/auth/usuario';
+  UrlByUserName = 'http://backend-users.us-east-1.elasticbeanstalk.com/auth/user/name';
   UrlByUserNameMedic = 'http://bmed-medical.us-east-1.elasticbeanstalk.com/auth/findUsuario';
-  urlPresionIdPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/presion/user';
-  urlAddCovid = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/covid/save';
-  urlTemperaturaPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/temp/user';
-  urlOxigenoPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/oxi/user';
-  urlFrecuenciaturaPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/frecuencia/user';
-  urlCovidPatient = 'http://bmed-user.us-east-1.elasticbeanstalk.com/api/covid/user';
+  urlPresionIdPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/presion/user';
+  urlAddCovid = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/covid/save';
+  urlTemperaturaPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/temp/user';
+  urlOxigenoPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/oxi/user';
+  urlFrecuenciaturaPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/frecuencia/user';
+  urlCovidPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/api/covid/user';
 
   constructor(private http: HttpClient) { }
 
@@ -41,17 +41,17 @@ export class ServiceService {
   }
 
   // DATA PATIENT
-  getPresionPersonaId(id: number) {
-    return this.http.get<any>(`${this.urlPresionIdPatient}/${id}`);
+  getPresionPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlPresionIdPatient}/${id}`, { headers });
   }
-  getTemperaturaPersonaId(id: number) {
-    return this.http.get<any>(`${this.urlTemperaturaPatient}/${id}`);
+  getTemperaturaPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlTemperaturaPatient}/${id}`, { headers });
   }
-  getOxigenoPersonaId(id: number) {
-    return this.http.get<any>(`${this.urlOxigenoPatient}/${id}`);
+  getOxigenoPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlOxigenoPatient}/${id}`, { headers });
   }
-  getFrecuenciaPersonaId(id: number) {
-    return this.http.get<any>(`${this.urlFrecuenciaturaPatient}/${id}`);
+  getFrecuenciaPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlFrecuenciaturaPatient}/${id}`, { headers });
   }
   getCovidPersonaId(id: number) {
     return this.http.get<any>(`${this.urlCovidPatient}/${id}`);

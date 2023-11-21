@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Paciente } from 'src/app/models/Paciente';
 import { ServiceService } from 'src/app/services/service.service';
 import { TokenService } from 'src/app/services/token.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-tables',
@@ -55,7 +56,7 @@ export class TablesComponent implements OnInit {
       this.idUser = params.id;
       this.paciente = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
@@ -65,7 +66,7 @@ export class TablesComponent implements OnInit {
       this.idUser = data.id;
       this.paciente = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
@@ -79,38 +80,41 @@ export class TablesComponent implements OnInit {
 
   dataTemperature(): void {
     const id = this.idUser;
-    this.service.getTemperaturaPersonaId(id).subscribe(data => {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getTemperaturaPersonaId(id, headers).subscribe(data => {
       this.temperaturas = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
   dataPresion(): void {
     const id = this.idUser;
-    this.service.getPresionPersonaId(id).subscribe(data => {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getPresionPersonaId(id, headers).subscribe(data => {
       this.presiones = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
-
   }
 
   dataOxigeno(): void {
     const id = this.idUser;
-    this.service.getOxigenoPersonaId(id).subscribe(data => {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getOxigenoPersonaId(id, headers).subscribe(data => {
       this.oxigenos = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
   dataFrecuencia(): void {
     const id = this.idUser;
-    this.service.getFrecuenciaPersonaId(id).subscribe(data => {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getFrecuenciaPersonaId(id, headers).subscribe(data => {
       this.frecuencias = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
