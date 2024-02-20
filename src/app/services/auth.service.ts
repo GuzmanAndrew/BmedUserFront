@@ -10,7 +10,7 @@ import { JwtDTO } from '../models/jwt-dto';
 export class AuthService {
 
   authURL = 'http://backend-users.us-east-1.elasticbeanstalk.com/auth/';
-  authMedicalURL = 'http://backend-users.us-east-1.elasticbeanstalk.com/auth/';
+  authMedicalURL = 'http://backend-medical-env.eba-btsaapyy.us-east-1.elasticbeanstalk.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
