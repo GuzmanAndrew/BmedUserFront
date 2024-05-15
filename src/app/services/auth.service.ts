@@ -9,7 +9,7 @@ import { JwtDTO } from '../models/jwt-dto';
 })
 export class AuthService {
 
-  authURL = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/auth/';
+  authURL = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/';
   authMedicalURL = 'http://ab073dcc02b824e1099fa59323873364-133220988.us-east-1.elb.amazonaws.com:8083/auth/';
 
   constructor(private httpClient: HttpClient) { }

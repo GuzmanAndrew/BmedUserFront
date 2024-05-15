@@ -8,16 +8,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ServiceService {
 
-  Url = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/auth/findUsuarios';
-  UrlByUserId = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/auth/usuario';
-  UrlByUserName = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/auth/user/name';
+  Url = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/findUsuarios';
+  UrlByUserId = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/usuario';
+  UrlByUserName = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/user/name';
   UrlByUserNameMedic = 'http://ab073dcc02b824e1099fa59323873364-133220988.us-east-1.elb.amazonaws.com:8083/auth/findUsuario';
-  urlPresionIdPatient = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/presion/user';
-  urlAddCovid = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/covid/save';
-  urlTemperaturaPatient = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/temp/user';
-  urlOxigenoPatient = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/oxi/user';
-  urlFrecuenciaturaPatient = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/frecuencia/user';
-  urlCovidPatient = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/api/covid/user';
+  urlPresionIdPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/presion/user';
+  urlAddCovid = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/covid/save';
+  urlTemperaturaPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/temp/user';
+  urlOxigenoPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/oxi/user';
+  urlFrecuenciaturaPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/frecuencia/user';
+  urlCovidPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/covid/user';
 
   constructor(private http: HttpClient) { }
 
