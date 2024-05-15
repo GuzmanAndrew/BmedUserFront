@@ -119,6 +119,20 @@
         </div>
       </div>
     </div> -->
+    <div class="col-xl-6">
+      <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer; height: 132px;"
+        [routerLink]="['/patologias']">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Módulo</h6>
+              <h2 class="mb-0">Ver datos patológicos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 <br>
@@ -132,7 +146,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Ver Datos Médicos</th>
-            <!-- <th scope="col">Análisis COVID-19</th> -->
+            <th scope="col">Ver Datos Patológicos</th> 
           </tr>
         </thead>
         <tbody>
@@ -143,9 +157,9 @@
             <td>
               <a [routerLink]="['/info', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
             </td>
-            <!-- <td>
-              <a [routerLink]="['/covid-med', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-brain"></i></a>
-            </td>   -->  
+            <td>
+              <a [routerLink]="['/covid-med', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
+            </td>     
           </tr>
         </tbody>
       </table>
