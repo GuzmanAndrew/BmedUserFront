@@ -18,7 +18,7 @@ export class ServiceService {
   urlOxigenoPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/oxi/user';
   urlFrecuenciaturaPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/frecuencia/user';
   urlCovidPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/covid/user';
-
+  urlpatologiaPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/patologias/user';
   constructor(private http: HttpClient) { }
 
   getPersonas() {
@@ -56,5 +56,9 @@ export class ServiceService {
   getCovidPersonaId(id: number) {
     return this.http.get<any>(`${this.urlCovidPatient}/${id}`);
   }
+  getPatologiaPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`,{ headers });
+  }
+
 
 }
