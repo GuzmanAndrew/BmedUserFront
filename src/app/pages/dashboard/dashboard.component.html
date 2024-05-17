@@ -91,9 +91,9 @@
     </div>
   </div>
 </div>
-<div class="container-fluid mt--7" style="margin-top: 3em !important" *ngIf="isUser">
+<div class="container-fluid mt--7 " style="margin-top: 3em !important" *ngIf="isUser">
   <div class="row">
-    <div class="col-xl-6">
+    <div class="col-xl-6 module-card">
       <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer; height: 132px;"
         [routerLink]="['/info']">
         <div class="card-header bg-transparent">
@@ -132,7 +132,20 @@
         </div>
       </div>
     </div>
-    
+    <div class="col-xl-6 ">
+      <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer; height: 132px;"
+        [routerLink]="['/medicamento']">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">Módulo</h6>
+              <h2 class="mb-0">Ver datos medicamentos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 <br>
@@ -147,6 +160,7 @@
             <th scope="col">Apellido</th>
             <th scope="col">Ver Datos Médicos</th>
             <th scope="col">Ver Datos Patológicos</th> 
+            <th scope="col">Ver Medicamentos</th>
           </tr>
         </thead>
         <tbody>
@@ -159,7 +173,10 @@
             </td>
             <td>
               <a [routerLink]="['/patologia', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
-            </td>     
+            </td>
+            <td>
+              <a [routerLink]="['/medicamento', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-pills"></i></a>
+            </td>        
           </tr>
         </tbody>
       </table>

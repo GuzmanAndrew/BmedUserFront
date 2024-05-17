@@ -1,7 +1,7 @@
 <div class="header pb-8 pt-5 pt-md-8"
   style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
   <div class="container-fluid">
-    <h1 class="title">Datos Patológicos</h1>
+    <h1 class="title">Datos de Medicamentos</h1>
   </div>
 </div>
 <!-- Page content -->
@@ -31,9 +31,9 @@
         </form>
         <div style="padding: 27px;">
           <ul class="tabs-container">
-            <li (click)="onTabClick('Patologys')" [class.active]="activeTab == 'Patologys'" class="tab-link">Patologias</li>
+            <li (click)="onTabClick('medication')" [class.active]="activeTab == 'medication'" class="tab-link">Medicamentos</li>
           </ul>
-          <div *ngIf="activeTab == 'Patologys'" class="w-100">
+          <div *ngIf="activeTab == 'medication'" class="w-100">
             <br>
             <br>
             <div class="col-xl-12 mb-5 mb-xl-0">
@@ -42,10 +42,12 @@
                   <tr>
                     <th scope="col">Fecha</th>
                     <th scope="col">Hora</th>
-                    <th scope="col">Patología</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Tratamiento requerido</th>
-                    <th scope="col">Descripción</th>
+                    <th scope="col">Medicamento</th>
+                    <th scope="col">Laboratorio</th>
+                    <th scope="col">Presentación</th>
+                    <th scope="col">Administrar</th>
+                    <th scope="col">Dosis al día</th>
+                    <th scope="col">Cantidad al mes</th>
                   </tr>
                 </thead>
                 <tbody>

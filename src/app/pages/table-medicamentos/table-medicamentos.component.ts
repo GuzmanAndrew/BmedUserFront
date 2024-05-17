@@ -5,13 +5,12 @@ import { TokenService } from 'src/app/services/token.service';
 import { HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-table-patologias',
-  templateUrl: './table-patologias.component.html',
-  styleUrls: ['./table-patologias.component.scss']
+  selector: 'app-table-medicamentos',
+  templateUrl: './table-medicamentos.component.html',
+  styleUrls: ['./table-medicamentos.component.scss']
 })
-export class TablePatologiasComponent implements OnInit {
+export class TableMedicamentosComponent implements OnInit {
 
   paciente: Paciente = {
     id: null,
@@ -25,9 +24,8 @@ export class TablePatologiasComponent implements OnInit {
     password: ''
   };
 
-
-  activeTab: string = 'Patology';
-  Patologia: any = [];
+  activeTab: string = 'Medication';
+  Medicamento: any = [];
   p: number = 1;
   idUser: any;
   personas: any = [];
@@ -41,7 +39,7 @@ export class TablePatologiasComponent implements OnInit {
     const roleUser = this.tokenService.getAuthoritiesUser();
     this.roles.forEach(rol => {
       if (rol === 'ROLE_MEDICO') {
-        this.getByUserId();
+         this.getByUserId();
       }
     })
     if (roleUser === 'ROLE_USER') {
@@ -71,21 +69,17 @@ export class TablePatologiasComponent implements OnInit {
 
   onTabClick(tab) {
     this.activeTab = tab;
-    this.dataPatology();
+    this.dataMedication();
   }
 
-  
-
-  dataPatology(): void {
+  dataMedication(): void {
     const id = this.idUser;
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getPatologiaPersonaId(id, headers).subscribe(data => {
-      this.Patologia = data;
+    this.service.getmedicamentosPersonaId(id, headers).subscribe(data => {
+      this.Medicamento = data;
     },
       err => console.log(err)
     );
   }
-
-  
 
 }

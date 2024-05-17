@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { TablePatologiasComponent } from './pages/table-patologias/table-patologias.component';
+import { TableMedicamentosComponent } from './pages/table-medicamentos/table-medicamentos.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { TablePatologiasComponent } from './pages/table-patologias/table-patolog
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    TablePatologiasComponent
+    TablePatologiasComponent,
+    TableMedicamentosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
