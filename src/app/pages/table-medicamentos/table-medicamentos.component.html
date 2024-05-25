@@ -30,37 +30,30 @@
           </div>
         </form>
         <div style="padding: 27px;">
-          <ul class="tabs-container">
-            <li (click)="onTabClick('medication')" [class.active]="activeTab == 'medication'" class="tab-link">Medicamentos</li>
-          </ul>
-          <div *ngIf="activeTab == 'medication'" class="w-100">
-            <br>
-            <br>
-            <div class="col-xl-12 mb-5 mb-xl-0">
-              <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
-                <thead>
-                  <tr>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Hora</th>
-                    <th scope="col">Medicamento</th>
-                    <th scope="col">Laboratorio</th>
-                    <th scope="col">Presentación</th>
-                    <th scope="col">Administrar</th>
-                    <th scope="col">Dosis al día</th>
-                    <th scope="col">Cantidad al mes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!--<tr *ngFor="let presion of presiones">
-                    <td>{{ presion.fecha }}</td>
-                    <td>{{ presion.hora }}</td>
-                    <td>{{ presion.sistolica }}</td>
-                    <td>{{ presion.diastolica }}</td>
-                  </tr>-->
-                </tbody>
-              </table>
-              <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
-            </div>
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+              <thead>
+                <tr>
+                  <th scope="col">Medicamento</th>
+                  <th scope="col">Laboratorio</th>
+                  <th scope="col">Presentación</th>
+                  <th scope="col">Vía Administración</th>
+                  <th scope="col">Cantidad Miligramos</th>
+                  <th scope="col">Cantidad Días</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medicamento of medicamentos">
+                  <td>{{ medicamento.nombreMedicamento }}</td>
+                  <td>{{ medicamento.nombreLaboratorio }}</td>
+                  <td>{{ medicamento.presentacionMedicamento }}</td>
+                  <td>{{ medicamento.viaAdministracion }}</td>
+                  <td>{{ medicamento.cantidadDia }}</td>
+                  <td>{{ medicamento.cantidadMes }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
           </div>
         </div>
       </div>

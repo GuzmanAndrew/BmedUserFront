@@ -112,6 +112,7 @@ export class TablesComponent implements OnInit {
     const id = this.idUser;
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
     this.service.getFrecuenciaPersonaId(id, headers).subscribe(data => {
+      console.log("DATA: " + data);
       this.frecuencias = data;
     },
       err => console.log(err)

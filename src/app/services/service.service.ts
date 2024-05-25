@@ -8,18 +8,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ServiceService {
 
-  Url = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/findUsuarios';
-  UrlByUserId = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/usuario';
-  UrlByUserName = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/auth/user/name';
-  UrlByUserNameMedic = 'http://ab073dcc02b824e1099fa59323873364-133220988.us-east-1.elb.amazonaws.com:8083/auth/findUsuario';
-  urlPresionIdPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/presion/user';
-  urlAddCovid = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/covid/save';
-  urlTemperaturaPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/temp/user';
-  urlOxigenoPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/oxi/user';
-  urlFrecuenciaturaPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/frecuencia/user';
-  urlCovidPatient = 'http://a54be33b1ce9e4e4cbb4872ede1edd1f-1144256451.us-east-1.elb.amazonaws.com:8081/api/covid/user';
-  urlpatologiaPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/patologias/user';
-  urlmedicamentosPatient = 'http://backend-users.us-east-1.elasticbeanstalk.com/patologias/user';
+  Url = 'http://localhost:8081/auth/findUsuarios';
+  UrlByUserId = 'http://localhost:8081/auth/usuario';
+  UrlByUserName = 'http://localhost:8081/auth/user/name';
+  UrlByUserNameMedic = 'http://localhost:8083/auth/findUsuario';
+  urlPresionIdPatient = 'http://localhost:8081/api/presion/user';
+  urlAddCovid = 'http://localhost:8081/api/covid/save';
+  urlTemperaturaPatient = 'http://localhost:8081/api/temp/user';
+  urlOxigenoPatient = 'http://localhost:8081/api/oxi/user';
+  urlFrecuenciaturaPatient = 'http://localhost:8081/api/frecuencia/user';
+  urlCovidPatient = 'http://localhost:8081/api/covid/user';
+  urlpatologiaPatient = 'http://localhost:8081/patologias/user';
+  urlmedicamentosPatient = 'http://localhost:8081/medicamentos/user';
   constructor(private http: HttpClient) { }
 
   getPersonas() {
@@ -58,10 +58,10 @@ export class ServiceService {
     return this.http.get<any>(`${this.urlCovidPatient}/${id}`);
   }
   getPatologiaPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`,{ headers });
+    return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`, { headers });
   }
   getmedicamentosPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlmedicamentosPatient}/${id}`,{ headers });
+    return this.http.get<any>(`${this.urlmedicamentosPatient}/${id}`, { headers });
   }
 
 

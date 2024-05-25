@@ -158,8 +158,8 @@
             <th scope="col">Cedula</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
-            <th scope="col">Ver Datos Médicos</th>
-            <th scope="col">Ver Datos Patológicos</th> 
+            <th scope="col">Datos Fisiológicos</th>
+            <th scope="col">Datos Patológicos</th>
             <th scope="col">Ver Medicamentos</th>
           </tr>
         </thead>
@@ -169,14 +169,17 @@
             <td>{{persona.nombres}}</td>
             <td>{{persona.apellidos}}</td>
             <td>
-              <a [routerLink]="['/info', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
+              <a [routerLink]="['/info', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i
+                  class="fa fa-eye"></i></a>
             </td>
             <td>
-              <a [routerLink]="['/patologia', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-eye"></i></a>
+              <a [routerLink]="['/patologia', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i
+                  class="fa fa-eye"></i></a>
             </td>
             <td>
-              <a [routerLink]="['/medicamento', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i class="fa fa-pills"></i></a>
-            </td>        
+              <a [routerLink]="['/medicamento', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i
+                  class="fa fa-pills"></i></a>
+            </td>
           </tr>
         </tbody>
       </table>

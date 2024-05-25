@@ -24,33 +24,31 @@ export class TableMedicamentosComponent implements OnInit {
     password: ''
   };
 
-  activeTab: string = 'Medication';
-  Medicamento: any = [];
+  medicamentos: any = [];
   p: number = 1;
-  idUser: any;
   personas: any = [];
   roles: string[];
 
-  constructor(private service:ServiceService,
-    private activatedRouter:ActivatedRoute, private tokenService:TokenService) { }
+  constructor(private service: ServiceService,
+    private activatedRouter: ActivatedRoute, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.roles = this.tokenService.getAuthorities();
     const roleUser = this.tokenService.getAuthoritiesUser();
     this.roles.forEach(rol => {
       if (rol === 'ROLE_MEDICO') {
-         this.getByUserId();
+        this.getByUserId();
       }
     })
     if (roleUser === 'ROLE_USER') {
       this.getByUserName();
     }
+    this.dataMedication();
   }
 
   getByUserId(): void {
     const params = this.activatedRouter.snapshot.params;
     this.service.getPersonaId(params.id).subscribe(data => {
-      this.idUser = params.id;
       this.paciente = data;
     },
       err => console.log(err)
@@ -60,23 +58,19 @@ export class TableMedicamentosComponent implements OnInit {
   getByUserName(): void {
     const params = sessionStorage.getItem('AuthUserName');
     this.service.getPersonaUser(params).subscribe((data: any) => {
-      this.idUser = data.id;
       this.paciente = data;
     },
       err => console.log(err)
     );
   }
 
-  onTabClick(tab) {
-    this.activeTab = tab;
-    this.dataMedication();
-  }
-
   dataMedication(): void {
-    const id = this.idUser;
+    const id = sessionStorage.getItem('userId');
+    const idNumber = parseInt(id, 10);
+
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getmedicamentosPersonaId(id, headers).subscribe(data => {
-      this.Medicamento = data;
+    this.service.getmedicamentosPersonaId(idNumber, headers).subscribe(data => {
+      this.medicamentos = data;
     },
       err => console.log(err)
     );
