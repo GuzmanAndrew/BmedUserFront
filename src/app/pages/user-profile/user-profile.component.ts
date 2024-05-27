@@ -30,15 +30,11 @@ export class UserProfileComponent implements OnInit {
     private tokenService: TokenService) { }
 
   ngOnInit() {
-    this.roles = this.tokenService.getAuthorities();
     const roleUser = this.tokenService.getAuthoritiesUser();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_MEDICO') {
-        this.isMedical = true;
-        this.loginMedic();
-      }
-    })
-    if (roleUser === 'ROLE_USER') {
+    if (roleUser === 'ROLE_MEDICO') {
+      this.isMedical = true;
+      this.loginMedic();
+    } else if (roleUser === 'ROLE_USER') {
       this.isUser = true;
       this.loginUser();
     }
@@ -50,7 +46,7 @@ export class UserProfileComponent implements OnInit {
       console.log(data);
       this.paciente = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 
@@ -60,7 +56,7 @@ export class UserProfileComponent implements OnInit {
       console.log(data);
       this.paciente = data;
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 

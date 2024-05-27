@@ -106,19 +106,19 @@
         </div>
       </div>
     </div>
-    <!-- <div class="col-xl-6">
-      <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer;"
+    <div class="col-xl-6">
+      <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer; height: 132px;"
         [routerLink]="['/covid']">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
               <h6 class="text-uppercase text-muted ls-1 mb-1">Módulo</h6>
-              <h2 class="mb-0">Análisis imágenes de Rayos X de tórax para COVID-19</h2>
+              <h2 class="mb-0">Análisis de tomografías computarizadas (TC) del tórax</h2>
             </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="col-xl-6">
       <div class="card shadow" style="box-shadow: 3px 3px 8px black !important; cursor: pointer; height: 132px;"
         [routerLink]="['/patologia']">
@@ -149,6 +149,7 @@
   </div>
 </div>
 <br>
+<!-- Visiulización Role medico -->
 <div class="container-fluid mt--7" style="margin-top: 3em !important" *ngIf="isMedical">
   <div class="row">
     <div class="col-xl-12 mb-5 mb-xl-0">
@@ -161,6 +162,7 @@
             <th scope="col">Datos Fisiológicos</th>
             <th scope="col">Datos Patológicos</th>
             <th scope="col">Ver Medicamentos</th>
+            <th scope="col">Análisis TC del tórax</th>
           </tr>
         </thead>
         <tbody>
@@ -179,6 +181,10 @@
             <td>
               <a [routerLink]="['/medicamento', persona.id]" class="btn btn-info btn-block" style="width: 20%;"><i
                   class="fa fa-pills"></i></a>
+            </td>
+            <td>
+              <a [routerLink]="['/covid-med', persona.id]" class="btn btn-info btn-block" style="width: 20%;">
+                <i class="fa fa-brain"></i></a>
             </td>
           </tr>
         </tbody>

@@ -8,18 +8,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ServiceService {
 
-  Url = 'http://localhost:8081/auth/findUsuarios';
-  UrlByUserId = 'http://localhost:8081/auth/usuario';
-  UrlByUserName = 'http://localhost:8081/auth/user/name';
-  UrlByUserNameMedic = 'http://localhost:8083/auth/findUsuario';
-  urlPresionIdPatient = 'http://localhost:8081/api/presion/user';
-  urlAddCovid = 'http://localhost:8081/api/covid/save';
-  urlTemperaturaPatient = 'http://localhost:8081/api/temp/user';
-  urlOxigenoPatient = 'http://localhost:8081/api/oxi/user';
-  urlFrecuenciaturaPatient = 'http://localhost:8081/api/frecuencia/user';
-  urlCovidPatient = 'http://localhost:8081/api/covid/user';
-  urlpatologiaPatient = 'http://localhost:8081/patologias/user';
-  urlmedicamentosPatient = 'http://localhost:8081/medicamentos/user';
+  Url = 'https://bmed-users-0af1bb387412.herokuapp.com/auth/findUsuarios';
+  UrlByUserId = 'https://bmed-users-0af1bb387412.herokuapp.com/auth/usuario';
+  UrlByUserName = 'https://bmed-users-0af1bb387412.herokuapp.com/auth/user/name';
+  UrlByUserNameMedic = 'https://bmed-doctors-400d7407656f.herokuapp.com/auth/findMedico';
+  urlPresionIdPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/api/presion/user';
+  urlAddCovid = 'https://bmed-users-0af1bb387412.herokuapp.com/api/covid/save';
+  urlTemperaturaPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/api/temp/user';
+  urlOxigenoPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/api/oxi/user';
+  urlFrecuenciaturaPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/api/frecuencia/user';
+  urlCovidPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/api/covid/user';
+  urlpatologiaPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/patologias/user';
+  urlmedicamentosPatient = 'https://bmed-users-0af1bb387412.herokuapp.com/medicamentos/user';
   constructor(private http: HttpClient) { }
 
   getPersonas() {
@@ -34,8 +34,8 @@ export class ServiceService {
   getPersonaMedic(usuario: string) {
     return this.http.get(`${this.UrlByUserNameMedic}/${usuario}`);
   }
-  savedCovid(covid: Covid) {
-    return this.http.post(`${this.urlAddCovid}`, covid);
+  savedCovid(covid: Covid, headers: HttpHeaders) {
+    return this.http.post(`${this.urlAddCovid}`, covid, { headers });
   }
   updatePersona(id: string | number, updatePersona: Paciente) {
     return this.http.put(`${this.Url}/${id}`, updatePersona);
@@ -54,8 +54,8 @@ export class ServiceService {
   getFrecuenciaPersonaId(id: number, headers: HttpHeaders) {
     return this.http.get<any>(`${this.urlFrecuenciaturaPatient}/${id}`, { headers });
   }
-  getCovidPersonaId(id: number) {
-    return this.http.get<any>(`${this.urlCovidPatient}/${id}`);
+  getCovidPersonaId(id: number, headers: HttpHeaders) {
+    return this.http.get<any>(`${this.urlCovidPatient}/${id}`, { headers });
   }
   getPatologiaPersonaId(id: number, headers: HttpHeaders) {
     return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`, { headers });

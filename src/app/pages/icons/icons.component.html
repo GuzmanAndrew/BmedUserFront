@@ -1,7 +1,8 @@
-<div class="header pb-8 pt-5 pt-md-8" style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
+<div class="header pb-8 pt-5 pt-md-8"
+  style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
   <div class="container-fluid">
     <div class="container-fluid">
-      <h1 class="title">Análisis de imágenes de Rayos X de tórax para COVID-19</h1>
+      <h1 class="title">Análisis de tomografías computarizadas (TC) del tórax</h1>
     </div>
   </div>
 </div>
@@ -12,7 +13,16 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header bg-transparent">
-          <h3 class="mb-0">Clasificar Imagen</h3>
+          <h3 class="mb-0">
+            Este módulo de Tomografía Computarizada (TC) para detección de cáncer pulmonar permite
+            a los usuarios cargar imágenes de TC de pulmones para su análisis. Utilizando algoritmos
+            avanzados de procesamiento de imágenes y aprendizaje automático, el módulo analiza la
+            imagen para identificar posibles indicadores de cáncer pulmonar. Es fundamental tener
+            en cuenta que, si bien la inteligencia artificial puede proporcionar una evaluación
+            inicial, la opinión final de un médico es imprescindible para un diagnóstico preciso
+            y un plan de tratamiento adecuado. Por tanto, las predicciones generadas por la
+            inteligencia artificial serán almacenadas para que un médico las pueda revisar y validar.
+          </h3>
         </div>
         <div class="card-body">
           <form name="myForm">
@@ -21,7 +31,7 @@
               <input type="file" name="file" ng-model="cn" class="form-control-file" (change)="capturarFile($event)"
                 accept=".jpg,.jpeg,.png" style="font-size:13">
             </div>
-            <div *ngIf="imagePreview" style="text-align: center;" >
+            <div *ngIf="imagePreview" style="text-align: center;">
               <img width="900px" [src]="imagePreview" id="imagen" class="img-responsive" />
             </div>
             <br>
