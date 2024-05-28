@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { TablePatologiasComponent } from './pages/table-patologias/table-patologias.component';
+import { TableMedicamentosComponent } from './pages/table-medicamentos/table-medicamentos.component';
 
 @NgModule({
   imports: [
@@ -26,7 +28,9 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    TablePatologiasComponent,
+    TableMedicamentosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

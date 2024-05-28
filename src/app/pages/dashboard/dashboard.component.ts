@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 export class DashboardComponent implements OnInit {
 
   personas: any = [];
-  roles: string[];
+  /* roles: string[]; */
   isMedical = false;
   isUser = false;
 
@@ -18,15 +18,12 @@ export class DashboardComponent implements OnInit {
     private tokenService: TokenService) { }
 
   ngOnInit() {
-    this.roles = this.tokenService.getAuthorities();
+    /* this.roles = this.tokenService.getAuthorities(); */
     const roleUser = this.tokenService.getAuthoritiesUser();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_MEDICO') {
-        this.isMedical = true;
-        this.getPersons();
-      }
-    })
-    if (roleUser === 'ROLE_USER') {
+    if (roleUser === 'ROLE_MEDICO') {
+      this.isMedical = true;
+      this.getPersons();
+    } else if (roleUser === 'ROLE_USER') {
       this.isUser = true;
       this.getPersonByUsername();
     }
@@ -46,7 +43,7 @@ export class DashboardComponent implements OnInit {
     this.service.getPersonaUser(params).subscribe((data: any) => {
       window.sessionStorage.setItem("userId", data.id);
     },
-    err => console.log(err)
+      err => console.log(err)
     );
   }
 }

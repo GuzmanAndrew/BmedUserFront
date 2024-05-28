@@ -9,8 +9,8 @@ import { JwtDTO } from '../models/jwt-dto';
 })
 export class AuthService {
 
-  authURL = 'http://af1d8086a212344448cec34bbef1637a-1470802726.us-east-1.elb.amazonaws.com:8081/auth/';
-  authMedicalURL = 'http://ab073dcc02b824e1099fa59323873364-133220988.us-east-1.elb.amazonaws.com:8083/auth/';
+  authURL = 'https://bmed-users-0af1bb387412.herokuapp.com/auth/';
+  authMedicalURL = 'https://bmed-doctors-400d7407656f.herokuapp.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 

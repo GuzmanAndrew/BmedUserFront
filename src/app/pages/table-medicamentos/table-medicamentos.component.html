@@ -1,0 +1,62 @@
+<div class="header pb-8 pt-5 pt-md-8"
+  style="background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(67,172,219,1) 20%, rgba(22,124,145,1) 100%);">
+  <div class="container-fluid">
+    <h1 class="title">Datos de Medicamentos</h1>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <!-- <div class="card-header border-0">
+          <h3 class="mb-0">Card tables</h3>
+        </div> -->
+        <form style="padding: 27px;">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <p for="cedula">Cedula</p>
+              <input type="text" name="cedula" [(ngModel)]="paciente.cedula" class="form-control" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <p for="nombres">Nombres</p>
+              <input type="text" name="nombres" [(ngModel)]="paciente.nombres" class="form-control" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <p for="apellidos">Apellidos</p>
+              <input type="text" name="apellidos" [(ngModel)]="paciente.apellidos" class="form-control" disabled>
+            </div>
+          </div>
+        </form>
+        <div style="padding: 27px;">
+          <div class="col-xl-12 mb-5 mb-xl-0">
+            <table class="table table-striped table-bordered" style="margin-left: 16px; width: 97% !important;">
+              <thead>
+                <tr>
+                  <th scope="col">Medicamento</th>
+                  <th scope="col">Laboratorio</th>
+                  <th scope="col">Presentación</th>
+                  <th scope="col">Vía Administración</th>
+                  <th scope="col">Cantidad Miligramos</th>
+                  <th scope="col">Cantidad Días</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medicamento of medicamentos">
+                  <td>{{ medicamento.nombreMedicamento }}</td>
+                  <td>{{ medicamento.nombreLaboratorio }}</td>
+                  <td>{{ medicamento.presentacionMedicamento }}</td>
+                  <td>{{ medicamento.viaAdministracion }}</td>
+                  <td>{{ medicamento.cantidadDia }}</td>
+                  <td>{{ medicamento.cantidadMes }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
