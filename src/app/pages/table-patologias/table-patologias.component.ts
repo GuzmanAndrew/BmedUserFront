@@ -66,14 +66,8 @@ export class TablePatologiasComponent implements OnInit {
   }
 
   dataPatology(): void {
-    const token = this.tokenService.getToken();
-    const id = sessionStorage.getItem('userId');
-    const idNumber = parseInt(id, 10);
-
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    console.log("Headers: ", headers);
-
-    this.service.getPatologiaPersonaId(idNumber, headers).subscribe(
+    const params = this.activatedRouter.snapshot.params;
+    this.service.getPatologiaPersonaId(params.id).subscribe(
       data => {
         console.log("Response Data: ", data);
         this.patologias = data;

@@ -86,8 +86,9 @@ export class IconsComponent implements OnInit {
           this.covid.prediccion = this.predictions;
           this.covid.puntaje = this.score;
           this.covid.pacienteId = Number(sessionStorage.getItem('userId'));
-          const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-          this.service.savedCovid(this.covid, headers).subscribe(data => {
+          /* const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+          this.service.savedCovid(this.covid, headers).subscribe(data => { */
+          this.service.savedCovid(this.covid).subscribe(data => {
             console.log("Success");
           },
             err => console.log(err)

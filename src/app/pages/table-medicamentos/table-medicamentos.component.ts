@@ -65,11 +65,10 @@ export class TableMedicamentosComponent implements OnInit {
   }
 
   dataMedication(): void {
-    const id = sessionStorage.getItem('userId');
-    const idNumber = parseInt(id, 10);
-
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getmedicamentosPersonaId(idNumber, headers).subscribe(data => {
+    const params = this.activatedRouter.snapshot.params;
+    /* const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getmedicamentosPersonaId(idNumber, headers).subscribe(data => { */
+    this.service.getmedicamentosPersonaId(params.id).subscribe(data => {
       this.medicamentos = data;
     },
       err => console.log(err)

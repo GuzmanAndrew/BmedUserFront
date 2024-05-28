@@ -79,9 +79,8 @@ export class TablesComponent implements OnInit {
   }
 
   dataTemperature(): void {
-    const id = this.idUser;
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getTemperaturaPersonaId(id, headers).subscribe(data => {
+    const params = this.activatedRoute.snapshot.params;
+    this.service.getTemperaturaPersonaId(params.id).subscribe(data => {
       this.temperaturas = data;
     },
       err => console.log(err)
@@ -89,9 +88,8 @@ export class TablesComponent implements OnInit {
   }
 
   dataPresion(): void {
-    const id = this.idUser;
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getPresionPersonaId(id, headers).subscribe(data => {
+    const params = this.activatedRoute.snapshot.params;
+    this.service.getPresionPersonaId(params.id).subscribe(data => {
       this.presiones = data;
     },
       err => console.log(err)
@@ -99,9 +97,8 @@ export class TablesComponent implements OnInit {
   }
 
   dataOxigeno(): void {
-    const id = this.idUser;
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getOxigenoPersonaId(id, headers).subscribe(data => {
+    const params = this.activatedRoute.snapshot.params;
+    this.service.getOxigenoPersonaId(params.id).subscribe(data => {
       this.oxigenos = data;
     },
       err => console.log(err)
@@ -109,9 +106,8 @@ export class TablesComponent implements OnInit {
   }
 
   dataFrecuencia(): void {
-    const id = this.idUser;
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getFrecuenciaPersonaId(id, headers).subscribe(data => {
+    const params = this.activatedRoute.snapshot.params;
+    this.service.getFrecuenciaPersonaId(params.id).subscribe(data => {
       console.log("DATA: " + data);
       this.frecuencias = data;
     },

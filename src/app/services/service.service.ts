@@ -34,34 +34,37 @@ export class ServiceService {
   getPersonaMedic(usuario: string) {
     return this.http.get(`${this.UrlByUserNameMedic}/${usuario}`);
   }
-  savedCovid(covid: Covid, headers: HttpHeaders) {
-    return this.http.post(`${this.urlAddCovid}`, covid, { headers });
+  savedCovid(covid: Covid) {
+    return this.http.post(`${this.urlAddCovid}`, covid);
   }
   updatePersona(id: string | number, updatePersona: Paciente) {
     return this.http.put(`${this.Url}/${id}`, updatePersona);
   }
 
   // DATA PATIENT
-  getPresionPersonaId(id: number, headers: HttpHeaders) {
+  /* getPresionPersonaId(id: number, headers: HttpHeaders) {
     return this.http.get<any>(`${this.urlPresionIdPatient}/${id}`, { headers });
+  } */
+  getPresionPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlPresionIdPatient}/${id}`);
   }
-  getTemperaturaPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlTemperaturaPatient}/${id}`, { headers });
+  getTemperaturaPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlTemperaturaPatient}/${id}`);
   }
-  getOxigenoPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlOxigenoPatient}/${id}`, { headers });
+  getOxigenoPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlOxigenoPatient}/${id}`);
   }
-  getFrecuenciaPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlFrecuenciaturaPatient}/${id}`, { headers });
+  getFrecuenciaPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlFrecuenciaturaPatient}/${id}`);
   }
-  getCovidPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlCovidPatient}/${id}`, { headers });
+  getCovidPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlCovidPatient}/${id}`);
   }
-  getPatologiaPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`, { headers });
+  getPatologiaPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlpatologiaPatient}/${id}`);
   }
-  getmedicamentosPersonaId(id: number, headers: HttpHeaders) {
-    return this.http.get<any>(`${this.urlmedicamentosPatient}/${id}`, { headers });
+  getmedicamentosPersonaId(id: number) {
+    return this.http.get<any>(`${this.urlmedicamentosPatient}/${id}`);
   }
 
 

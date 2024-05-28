@@ -41,8 +41,9 @@ export class TableCovidComponent implements OnInit {
   }
 
   dataCovid(id: number): void {
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
-    this.service.getCovidPersonaId(id, headers).subscribe(data => {
+    /* const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.tokenService.getToken());
+    this.service.getCovidPersonaId(id, headers).subscribe(data => { */
+    this.service.getCovidPersonaId(id).subscribe(data => {
       this.covids = data;
     },
       err => console.log(err)
